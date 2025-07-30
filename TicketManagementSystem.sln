@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{825515B7-A4A0-4842-B7F0-04F81E99F3D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Domain", "src\TicketManagement.Domain\TicketManagement.Domain.csproj", "{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322} = {825515B7-A4A0-4842-B7F0-04F81E99F3D3}
+	EndGlobalSection
+EndGlobal
