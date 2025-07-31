@@ -1,0 +1,12 @@
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\bin\Debug\net8.0\TicketManagement.Infrastructure.deps.json
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\bin\Debug\net8.0\TicketManagement.Infrastructure.dll
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\bin\Debug\net8.0\TicketManagement.Infrastructure.pdb
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.AssemblyInfoInputs.cache
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.AssemblyInfo.cs
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.sourcelink.json
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.dll
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\refint\TicketManagement.Infrastructure.dll
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\TicketManagement.Infrastructure.pdb
+D:\Work\Projects\TicketManagementApp\TicketManagementSystem\src\TicketManagement.Infrastructure\obj\Debug\net8.0\ref\TicketManagement.Infrastructure.dll

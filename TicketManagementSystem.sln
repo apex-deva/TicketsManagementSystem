@@ -4,6 +4,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{825515B7-A4A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Domain", "src\TicketManagement.Domain\TicketManagement.Domain.csproj", "{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Infrastructure", "src\TicketManagement.Infrastructure\TicketManagement.Infrastructure.csproj", "{DFEAFE0E-3581-4030-BB7B-E5D631155C28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE00509A-01D4-463A-BD08-CADFD4FE8B60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Web", "src\TicketManagement.Web\TicketManagement.Web.csproj", "{E8F29247-A831-4734-920C-596A98EE5728}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,8 +20,18 @@ Global
 		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEAFE0E-3581-4030-BB7B-E5D631155C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEAFE0E-3581-4030-BB7B-E5D631155C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEAFE0E-3581-4030-BB7B-E5D631155C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEAFE0E-3581-4030-BB7B-E5D631155C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F29247-A831-4734-920C-596A98EE5728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F29247-A831-4734-920C-596A98EE5728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F29247-A831-4734-920C-596A98EE5728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F29247-A831-4734-920C-596A98EE5728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6CA30768-4FC5-4E2F-9AE0-3E7334F43322} = {825515B7-A4A0-4842-B7F0-04F81E99F3D3}
+		{DFEAFE0E-3581-4030-BB7B-E5D631155C28} = {825515B7-A4A0-4842-B7F0-04F81E99F3D3}
+		{E8F29247-A831-4734-920C-596A98EE5728} = {825515B7-A4A0-4842-B7F0-04F81E99F3D3}
 	EndGlobalSection
 EndGlobal
