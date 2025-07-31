@@ -14,7 +14,8 @@ public class TicketRepository : ITicketRepository
 
     public async Task<Ticket?> GetByIdAsync(Guid id)
     {
-        return await _context.Tickets.FindAsync(id);
+        TicketId ticketId = new TicketId(id);
+        return await _context.Tickets.FindAsync(ticketId);
     }
 
     public async Task<(List<Ticket> tickets, int totalCount)> GetPagedAsync(int page, int pageSize)
@@ -32,6 +33,12 @@ public class TicketRepository : ITicketRepository
     public async Task AddAsync(Ticket? ticket)
     {
         await _context.Tickets.AddAsync(ticket);
+    }
+
+    public void UpdateAsync(Ticket? ticket)
+    { 
+        if(ticket == null) return;
+        _context.Tickets.Update(ticket);
     }
 
     public async Task SaveChangesAsync()

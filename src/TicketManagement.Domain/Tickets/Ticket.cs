@@ -1,5 +1,6 @@
 ﻿using TicketManagement.Domain.Base;
 using TicketManagement.Domain.Tickets.Events;
+using TicketManagement.Domain.Tickets.Rules;
 
 namespace TicketManagement.Domain.Tickets;
 
@@ -33,21 +34,17 @@ public class Ticket : Entity, IAggregateRoot
 
     public void Handle()
     {
-        if (Status == TicketStatus.Open)
-        {
-            Status = TicketStatus.Handled;
-            HandledDateTime = DateTime.UtcNow;
-        }
+        CheckRule(new HandleTicketRule(this));
+        Status = TicketStatus.Handled;
+        HandledDateTime = DateTime.UtcNow;
     }
 
     public void AutoHandle()
     {
-        var timeSinceCreation = DateTime.UtcNow - CreationDateTime;
-        if (timeSinceCreation.TotalMinutes >= 60 && Status == TicketStatus.Open)
-        {
-            Status = TicketStatus.Handled;
-            HandledDateTime = DateTime.UtcNow;
-        }
+        CheckRule(new HandleTicketRule(this));
+        CheckRule(new AutoHandleTicketRule(this));
+        Status = TicketStatus.Handled;
+        HandledDateTime = DateTime.UtcNow;
     }
 
     public TicketColorCode GetColorCode()

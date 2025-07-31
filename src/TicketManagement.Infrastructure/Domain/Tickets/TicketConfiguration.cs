@@ -63,7 +63,7 @@ public class TicketConfiguration : IEntityTypeConfiguration<Ticket>
             "LEN([PhoneNumber]) >= 10");
         
         builder.HasCheckConstraint("CK_Tickets_Status_Valid",
-            "[Status] IN ('Open', 'Handled')");
+            "[Status] IN (1, 2)");
 
        
     }

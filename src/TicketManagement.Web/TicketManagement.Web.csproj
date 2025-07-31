@@ -11,10 +11,16 @@
         <PackageReference Include="Swashbuckle.AspNetCore"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
+        <PackageReference Include="MediatR" />
     </ItemGroup>
-
+   
     <ItemGroup>
+      <ProjectReference Include="..\TicketManagement.Application\TicketManagement.Application.csproj" />
       <ProjectReference Include="..\TicketManagement.Infrastructure\TicketManagement.Infrastructure.csproj" />
+    </ItemGroup>
+   
+    <ItemGroup>
+      <Folder Include="ClientApp\" />
     </ItemGroup>
 
 </Project>
