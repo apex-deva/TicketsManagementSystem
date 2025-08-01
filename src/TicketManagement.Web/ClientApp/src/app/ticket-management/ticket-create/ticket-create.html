@@ -1,0 +1,69 @@
+<div class="ticket-create-container">
+  <h2>Create New Ticket</h2>
+  
+  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="ticket-form">
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input 
+        type="tel" 
+        id="phoneNumber" 
+        formControlName="phoneNumber" 
+        placeholder="e.g. 01234567890"
+      >
+      <div *ngIf="ticketForm.get('phoneNumber')?.touched && ticketForm.get('phoneNumber')?.errors" class="error-message">
+        <span *ngIf="ticketForm.get('phoneNumber')?.errors?.['required']">Phone number is required</span>
+        <span *ngIf="ticketForm.get('phoneNumber')?.errors?.['pattern']">Please enter a valid Egyptian phone number</span>
+      </div>
+    </div>
+
+    <!-- Governorate -->
+    <div class="form-group">
+      <label for="governorate">Governorate</label>
+      <select id="governorate" formControlName="governorate">
+        <option value="" disabled selected>Select Governorate</option>
+        <option *ngFor="let gov of governorates" [value]="gov">{{ gov }}</option>
+      </select>
+      <div *ngIf="ticketForm.get('governorate')?.touched && ticketForm.get('governorate')?.errors" class="error-message">
+        Governorate is required
+      </div>
+    </div>
+
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">City</label>
+      <select 
+        id="city" 
+        formControlName="city"
+        [disabled]="!ticketForm.get('governorate')?.value"
+      >
+        <option value="" disabled selected>Select City</option>
+        <option *ngFor="let city of filteredCities" [value]="city">{{ city }}</option>
+      </select>
+      <div *ngIf="ticketForm.get('city')?.touched && ticketForm.get('city')?.errors" class="error-message">
+        City is required
+      </div>
+    </div>
+
+    <!-- District -->
+    <div class="form-group">
+      <label for="district">District</label>
+      <select 
+        id="district" 
+        formControlName="district"
+        [disabled]="!ticketForm.get('city')?.value"
+      >
+        <option value="" disabled selected>Select District</option>
+        <option *ngFor="let district of filteredDistricts" [value]="district">{{ district }}</option>
+      </select>
+      <div *ngIf="ticketForm.get('district')?.touched && ticketForm.get('district')?.errors" class="error-message">
+        District is required
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="router.navigate(['../tickets'])">Cancel</button>
+      <button type="submit" class="btn-primary" [disabled]="ticketForm.invalid">Create Ticket</button>
+    </div>
+  </form>
+</div>

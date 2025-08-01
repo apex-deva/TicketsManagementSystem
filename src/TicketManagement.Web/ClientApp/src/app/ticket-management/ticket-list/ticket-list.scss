@@ -1,0 +1,263 @@
+.ticket-list-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+
+  > div:first-of-type {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.tickets-table {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+
+    thead {
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #dee2e6;
+
+      th {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        color: #495057;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #dee2e6;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #f8f9fa;
+        }
+
+        td {
+          padding: 1rem;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+/* Color coding for tickets */
+.yellow-row {
+  background-color: #fffde7;
+}
+
+.green-row {
+  background-color: #e8f5e9;
+}
+
+.blue-row {
+  background-color: #e3f2fd;
+}
+
+.red-row {
+  background-color: #ffebee;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: #ffc107;
+  color: #212529;
+
+  &.handled {
+    background-color: #28a745;
+    color: white;
+  }
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &-primary {
+    background-color: #4a89dc;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: #3a70c2;
+    }
+
+    &:disabled {
+      background-color: #a0bae0;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+
+  &-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+
+    &:hover:not(:disabled) {
+      background-color: #e0e0e0;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+
+  .page-info {
+    font-size: 0.9rem;
+    color: #666;
+    min-width: 200px;
+    text-align: center;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ticket-list-container {
+    padding: 1rem;
+  }
+
+  .table {
+    thead {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+
+        &::before {
+          content: attr(data-label);
+          font-weight: 600;
+          margin-right: 1rem;
+          color: #495057;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Combined status and color coding styles */
+.ticket-yellow {
+  &.handled-ticket {
+    background-color: #e8f5e9;  // Override to green if handled
+    border-left: 4px solid #4caf50;
+  }
+  
+  &:not(.handled-ticket) {
+    background-color: #fffde7;
+    border-left: 4px solid #ffd600;
+    
+    &:hover {
+      background-color: #fff8e1;
+    }
+  }
+}
+
+/* Repeat the same pattern for other colors */
+/* Ticket Color Coding Styles */
+.ticket-yellow {
+  background-color: #fffde7;  // Light yellow
+  border-left: 4px solid #ffd600;  // Vibrant yellow border
+  
+  &:hover {
+    background-color: #fff8e1;  // Slightly darker yellow on hover
+  }
+}
+
+.ticket-green {
+  background-color: #e8f5e9;  // Light green
+  border-left: 4px solid #4caf50;  // Vibrant green border
+  
+  &:hover {
+    background-color: #e0f2e1;  // Slightly darker green on hover
+  }
+}
+
+.ticket-blue {
+  background-color: #e3f2fd;  // Light blue
+  border-left: 4px solid #2196f3;  // Vibrant blue border
+  
+  &:hover {
+    background-color: #d9eaf7;  // Slightly darker blue on hover
+  }
+}
+
+.ticket-red {
+  background-color: #ffebee;  // Light red
+  border-left: 4px solid #f44336;  // Vibrant red border
+  
+  &:hover {
+    background-color: #fce0e3;  // Slightly darker red on hover
+  }
+}
+
+.ticket-default {
+  background-color: #fafafa;  // Very light gray
+  border-left: 4px solid #e0e0e0;  // Light gray border
+  
+  &:hover {
+    background-color: #f5f5f5;  // Slightly darker gray on hover
+  }
+}
+
+/* Add this to ensure smooth transitions */
+.table tbody tr {
+  transition: background-color 0.3s ease, border-left-color 0.3s ease;
+}   

@@ -18,9 +18,5 @@
       <ProjectReference Include="..\TicketManagement.Application\TicketManagement.Application.csproj" />
       <ProjectReference Include="..\TicketManagement.Infrastructure\TicketManagement.Infrastructure.csproj" />
     </ItemGroup>
-   
-    <ItemGroup>
-      <Folder Include="ClientApp\" />
-    </ItemGroup>
 
 </Project>
