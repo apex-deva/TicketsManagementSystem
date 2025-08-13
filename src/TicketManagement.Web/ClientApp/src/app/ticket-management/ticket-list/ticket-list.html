@@ -18,7 +18,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let ticket of tickets" [class]="getColorClass(ticket.colorCode)" [class.handled-ticket]="ticket.status === 'Handled'">
-          <td>{{ ticket.creationDateTime | date:'short' }}</td>
+<!--          <td>{{ ticket.creationDateTime | date:'short' }}</td>-->
+          <td>{{ ticket.creationDateTime | utcToLocal:'short' }}</td>
           <td>{{ ticket.phoneNumber }}</td>
           <td>{{ ticket.governorate }}, {{ ticket.city }}, {{ ticket.district }}</td>
           <td>
@@ -27,8 +28,8 @@
             </span>
           </td>
           <td>
-            <button 
-              class="btn btn-primary" 
+            <button
+              class="btn btn-primary"
               *ngIf="ticket.status === 'Open'"
               (click)="handleTicket(ticket.id)">
               Handle
@@ -37,22 +38,22 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- Pagination -->
     <div class="pagination" *ngIf="totalPages > 1">
-      <button 
-        class="btn btn-secondary" 
+      <button
+        class="btn btn-secondary"
         [disabled]="currentPage === 1"
         (click)="onPageChange(currentPage - 1)">
         Previous
       </button>
-      
+
       <span class="page-info">
         Page {{ currentPage }} of {{ totalPages }} ({{ totalCount }} total tickets)
       </span>
-      
-      <button 
-        class="btn btn-secondary" 
+
+      <button
+        class="btn btn-secondary"
         [disabled]="currentPage === totalPages"
         (click)="onPageChange(currentPage + 1)">
         Next

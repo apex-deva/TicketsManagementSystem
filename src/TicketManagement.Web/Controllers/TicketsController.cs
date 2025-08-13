@@ -1,9 +1,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using TicketManagement.Application.Commands;
 using TicketManagement.Application.DTOs;
 using TicketManagement.Application.Queries;
 using TicketManagement.Application.Shared;
+using TicketManagement.Web.Hubs;
 
 namespace TicketManagement.Web.Controllers;
 
@@ -12,16 +14,19 @@ namespace TicketManagement.Web.Controllers;
 public class TicketsController : ControllerBase
 {
     private readonly IMediator _mediator;
+    private readonly IHubContext<TicketHub> _hubContext;
 
-    public TicketsController(IMediator mediator)
+    public TicketsController(IMediator mediator, IHubContext<TicketHub> hubContext)
     {
         _mediator = mediator;
+        _hubContext = hubContext;
     }
     
     [HttpPost]
     public async Task<ActionResult<TicketDto>> CreateTicket([FromBody] CreateTicketCommand command)
     {
         var ticket = await _mediator.Send(command);
+        await _hubContext.Clients.All.SendAsync("TicketCreated", ticket);
         return Ok(ticket);
     }
     
@@ -38,6 +43,9 @@ public class TicketsController : ControllerBase
     {
         var command = new HandleTicketCommand(id);
         var result = await _mediator.Send(command);
+        if (!result) return NotFound();
+        await _hubContext.Clients.All.SendAsync("TicketHandled", id);
         return Ok();
+
     }
 }

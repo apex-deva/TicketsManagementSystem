@@ -7,6 +7,7 @@
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="FluentAssertions" Version="8.5.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <!-- Core EF Packages -->
@@ -22,5 +23,6 @@
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <!--  MediatR (CQRS/Event-Driven Architecture) -->
     <PackageVersion Include="MediatR" Version="13.0.0" />
+    <PackageVersion Include="Xunit" Version="2.9.3" />
   </ItemGroup>
 </Project>

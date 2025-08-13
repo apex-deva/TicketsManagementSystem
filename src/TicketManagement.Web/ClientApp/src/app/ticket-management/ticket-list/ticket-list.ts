@@ -2,15 +2,18 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PagedResult, Ticket } from '../models/ticket.model';
 import { TicketService } from '../ticket.service';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {UtcToLocalPipe} from '../../pipes/utc-local.pipe';
+import {SignalRService} from '../services/signalR.service';
+import {tick} from '@angular/core/testing';
 
 @Component({
   selector: 'app-ticket-list',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
-  providers:[TicketService],
+  imports: [CommonModule, HttpClientModule, UtcToLocalPipe],
+  providers:[TicketService , UtcToLocalPipe , SignalRService],
   templateUrl: './ticket-list.html',
   styleUrl: './ticket-list.scss'
 })
@@ -24,10 +27,11 @@ export class TicketList implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private ticketService: TicketService, private cdr: ChangeDetectorRef , private router: Router) {}
+  constructor(private ticketService: TicketService, private cdr: ChangeDetectorRef , private router: Router ,     private signalRService: SignalRService) {}
 
   ngOnInit() {
     this.loadTickets();
+    this.setupSignalRListeners();
   }
 
   ngOnDestroy() {
@@ -60,7 +64,7 @@ export class TicketList implements OnInit, OnDestroy {
   handleTicket(ticketId: string) {
     const sub = this.ticketService.handleTicket(ticketId).subscribe({
       next: () => {
-       
+
         this.loadTickets();
       },
       error: (error) => {
@@ -90,4 +94,22 @@ export class TicketList implements OnInit, OnDestroy {
    goToCreateTicket(): void {
     this.router.navigate(['../create-ticket']); // Adjust the route as necessary
   }
+  private setupSignalRListeners() {
+    this.subscriptions.push(
+      this.signalRService.ticketCreated$.subscribe(() => {
+        this.loadTickets();
+      }),
+      this.signalRService.ticketHandled$.subscribe((ticketId) => {
+        const ticket = this.tickets.find(t => t.id === ticketId);
+        if (ticket) {
+          alert(`Ticket ${ticket.governorate} and ${ticket.city} has been handled successfully.`)
+          ticket.status = 'Handled';
+          this.cdr.detectChanges();
+
+        }
+      })
+    );
+  }
+
+
 }
