@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'tickets',
+    pathMatch: 'full'
+  },
      {
     path: 'tickets',
     loadComponent: () => import('./ticket-management/ticket-list/ticket-list').then(m => m.TicketList),
